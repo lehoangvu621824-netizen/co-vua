@@ -46,7 +46,7 @@ jobs:
           name: co-vua-apk
           path: project/**/*.apk
           if-no-files-found: error
-        uses: actions/upload-artifact@v4
+        
         with:
           name: co-vua-arm32-apk
-          path: project/co-vua-github-actions/app/build/outputs/apk/armeabi-v7a/debug/*.apk
+          
