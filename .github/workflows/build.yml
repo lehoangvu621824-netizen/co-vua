@@ -35,10 +35,12 @@ jobs:
           gradle wrapper --gradle-version 8.7
           chmod +x gradlew
           ./gradlew assembleDebug
-
-            - name: Tìm APK
+      - name: Tìm APK
         run: |
           find project -type f -name "*.apk" -print
+            
+        
+      
 
       - name: Đưa APK ra ngoài
         uses: actions/upload-artifact@v4
