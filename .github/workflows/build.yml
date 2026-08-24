@@ -36,7 +36,16 @@ jobs:
           chmod +x gradlew
           ./gradlew assembleDebug
 
+            - name: Tìm APK
+        run: |
+          find project -type f -name "*.apk" -print
+
       - name: Đưa APK ra ngoài
+        uses: actions/upload-artifact@v4
+        with:
+          name: co-vua-apk
+          path: project/**/*.apk
+          if-no-files-found: error
         uses: actions/upload-artifact@v4
         with:
           name: co-vua-arm32-apk
