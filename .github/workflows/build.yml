@@ -26,7 +26,7 @@ jobs:
 
       - name: Giải nén project
         run: |
-          unzip -o co-vua-github-actions-fixed.zip -d project
+          unzip -o co-vua-github-ready.zip -d project
           find project -maxdepth 3 -type f | head -50
 
       - name: Build APK 32-bit ARM
