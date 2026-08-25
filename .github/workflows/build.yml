@@ -30,7 +30,7 @@ jobs:
           find project -maxdepth 3 -type f | head -50
 
       - name: Build APK 32-bit ARM
-        working-directory: project/co-vua-github-actions
+        
         run: |
           gradle wrapper --gradle-version 8.7
           chmod +x gradlew
