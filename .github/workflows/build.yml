@@ -29,25 +29,26 @@ jobs:
           unzip -o co-vua-github-ready.zip -d project
           find project -maxdepth 3 -type f | head -50
 
-      - name: Build APK 32-bit ARM
+    
+           - name: Build APK 32-bit ARM
+      run: |
+        ROOT=$(find project -type f \( -name "settings.gradle" -o -name "settings.gradle.kts" -o -name "build.gradle" -o -name "build.gradle.kts" \) -print -quit | xargs -r dirname)
+        echo "Gradle project: $ROOT"
+        cd "$ROOT"
+        gradle wrapper --gradle-version 8.7
+        chmod +x gradlew
+        ./gradlew assembleDebug 
         
-        run: |
-          gradle wrapper --gradle-version 8.7
-          chmod +x gradlew
-          ./gradlew assembleDebug
-      - name: Tìm APK
-        run: |
-          find project -type f -name "*.apk" -print
+          
+          
+          
             
         
       
 
-      - name: Đưa APK ra ngoài
-        uses: actions/upload-artifact@v4
-        with:
-          name: co-vua-apk
-          path: project/**/*.apk
-          if-no-files-found: error
+      
+    
+        
 
       
           
