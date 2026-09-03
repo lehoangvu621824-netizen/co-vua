@@ -1,0 +1,6 @@
+{
+  "name": "Cờ Vua",
+  "description": "App Cờ Vua đóng gói từ giao diện web chess.com-style — WebView wrapper, chạy hoàn toàn offline.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}
