@@ -3,7 +3,6 @@ name: Build APK
 on:
   workflow_dispatch:
   push:
-    branches: [ "main", "master" ]
 
 jobs:
   build:
@@ -19,10 +18,13 @@ jobs:
           distribution: temurin
           java-version: '17'
 
+      - name: Extract original project
+        run: |
+          unzip -q ChessNativeAndroid-GITHUB.zip -d extracted
+          cp -a extracted/ChessNativeAndroid/. .
+
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
-        with:
-          gradle-version: '9.3.1'
 
       - name: Build APK
         run: gradle assembleDebug
@@ -30,5 +32,5 @@ jobs:
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: app-debug
-          path: app/build/outputs/apk/debug/app-debug.apk
+          name: chess-apk
+          path: app/build/outputs/apk/debug/*.apk
