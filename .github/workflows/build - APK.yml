@@ -19,8 +19,8 @@ jobs:
           java-version: '17'
 
       - name: Extract original project
-        run: |
-          unzip -q ChessNativeAndroid-GITHUB.zip -d extracted
+        run: chess_html_game.zip|
+          unzip -q 
           cp -a extracted/ChessNativeAndroid/. .
 
       - name: Setup Gradle
