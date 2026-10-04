@@ -32,5 +32,5 @@ jobs:
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: chess-apk
+          name: chess_html_game.zip
           path: app/build/outputs/apk/debug/*.apk
